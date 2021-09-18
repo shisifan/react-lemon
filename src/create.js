@@ -13,7 +13,7 @@ module.exports = function(res){
     // 选择模版
     let sourcePath;
     if(res.lemon === 'react + ts'){
-        sourcePath = __dirname.slice(0,-3)+'template';
+        sourcePath = __dirname.slice(0,-3)+'react-ts-template';
     }else if(res.lemon === "react"){
         sourcePath = __dirname.slice(0,-3)+'react-template';
     }
