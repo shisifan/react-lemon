@@ -5,13 +5,20 @@
     top:0;
     bottom: 0;
     background-color: black;
-    
 }
 .content{
-    position: absolute;
-    left:50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    margin-top: 40px;
+    height: 550px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.add{
+    font-weight: bold;
+    font-size: 100px;
+    color: white;
 }
 .title{
     text-align: center;

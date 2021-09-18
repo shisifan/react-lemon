@@ -22,6 +22,7 @@ program
         inquirer.create().then(res=>{
             if(res.conf){
                 create(res)
+                // console.log(res.lemon);
             }
         })
     })

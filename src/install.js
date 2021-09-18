@@ -11,7 +11,6 @@ function runCmd(cmd, args, fn) {
         }
     })
 }
-
 function findNpm() {
   var npm = process.platform === 'win32' ? ['npm.cmd'] : ['npm']
   for (var i = 0; i < npm.length; i++) {
@@ -21,7 +20,6 @@ function findNpm() {
   }
   throw new Error('please install npm')
 }
-
 module.exports = function (installArg = [ 'install' ]) {
   const npm = findNpm()
   return function (done){

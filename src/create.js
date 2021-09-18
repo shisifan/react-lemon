@@ -10,10 +10,13 @@ let isInstall = false  // 判断
 module.exports = function(res){
     // 创建文件 
     console.log(chalk.green('------------- 开始构建 -------------'))
-    // 找到template文件夹下的模版项目 
-    const sourcePath = __dirname.slice(0,-3)+'template'
-    console.log(chalk.blue('当前路径:'+ process.cwd()))
-    /* 修改package.json*/
+    // 选择模版
+    let sourcePath;
+    if(res.lemon === 'react + ts'){
+        sourcePath = __dirname.slice(0,-3)+'template';
+    }else if(res.lemon === "react"){
+        sourcePath = __dirname.slice(0,-3)+'react-template';
+    }
     revisePackageJson(res,sourcePath ).then(()=>{
         copy(sourcePath, process.cwd(), npm())
     })

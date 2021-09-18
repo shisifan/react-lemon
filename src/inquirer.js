@@ -16,7 +16,7 @@ const promptList = [
         type: 'list',
         message: '请选择模版？',
         name: 'lemon',
-        choices: ['lemon'],
+        choices: ['react + ts', "react", "vue", "vue + ts"],
         filter: function(val) {
           return val.toLowerCase()
         },
@@ -27,7 +27,8 @@ function create (){
     return new Promise((resolve)=>{
         inquirer.prompt(promptList).then(res=>{
             resolve(res)
+            // console.log(res);
         })
     })
-} 
+}
 module.exports = {create}
