@@ -16,6 +16,8 @@ module.exports = function(res){
         sourcePath = __dirname.slice(0,-3)+'react-ts-template';
     }else if(res.lemon === "react"){
         sourcePath = __dirname.slice(0,-3)+'react-template';
+    }else if(res.lemon === "vue"){
+        sourcePath = __dirname.slice(0,-3)+'vue-template';
     }
     revisePackageJson(res,sourcePath ).then(()=>{
         copy(sourcePath, process.cwd(), npm())
@@ -31,7 +33,7 @@ function runProject(){
 }
 function copy (sourcePath,currentPath,cb){
     flat++;
-    /* 读取文件夹下面的文件 */
+    // 读取文件夹下面的文件 
     fs.readdir(sourcePath,(err,paths)=>{
         flat--;
         if(err){
@@ -41,23 +43,23 @@ function copy (sourcePath,currentPath,cb){
             if(path !== '.git' && path !=='package.json' ){
                 fileCount++;
             }
-            const  newSourcePath = sourcePath + '/' + path;
-            const  newCurrentPath = currentPath + '/' + path;
-            /* 判断文件信息 */
+            const newSourcePath = sourcePath + '/' + path;
+            const newCurrentPath = currentPath + '/' + path;
+            // 判断文件信息 
             fs.stat(newSourcePath,(err,stat)=>{
                 if(err){
                     throw err;
                 }
-                /* 判断是文件，且不是 package.json  */
+                // 判断是文件，且不是 package.json  
                 if(stat.isFile() && path !=='package.json' ){
-                    /* 创建读写流 */
+                    // 创建读写流 
                     const readSteam = fs.createReadStream(newSourcePath)
                     const writeSteam = fs.createWriteStream(newCurrentPath)
                     readSteam.pipe(writeSteam)
                     chalk.green( '创建文件：'+ newCurrentPath  )
                     fileCount--
                     completeControl(cb)
-                /* 判断是文件夹，对文件夹单独进行 dirExist 操作 */    
+                // 判断是文件夹，对文件夹单独进行 dirExist 操作     
                 }else if(stat.isDirectory()){
                     if(path!=='.git' && path !=='package.json' ){
                         dirCount++

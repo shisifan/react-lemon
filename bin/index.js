@@ -30,7 +30,7 @@ program
     .command('start')
     .description('start a react project')
     .action(()=>{
-        console.log(chalk.green('1运行项目 ------------')); 
+        console.log(chalk.green('------------- 运行项目 ------------')); 
         start('start').then(() => {
             console.log(chalk.green('------------- 运行完成 ------------'));
         })
