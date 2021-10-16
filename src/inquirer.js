@@ -14,12 +14,26 @@ const promptList = [
         when: res => Boolean(res.conf)
     },{
         type: 'list',
+        name: 'language',
+        message: '请选择所需要的语言？',
+        choices: ['js', 'ts'],
+        filter: function(val){
+            return val.toLowerCase()
+        },
+        when: res => Boolean(res.conf)
+    },{
+        type: 'list',
         message: '请选择模版？',
         name: 'lemon',
-        choices: ['react + ts', "react", "vue", "vue + ts"],
+        choices: ['react', 'vue'],
         filter: function(val) {
-          return val.toLowerCase()
+            return val.toLowerCase()
         },
+        when: res => Boolean(res.conf)
+    },{
+        name: 'pack',
+        type: 'confirm',
+        message: '是否需要打包？',
         when: res => Boolean(res.conf)
     }
 ];
@@ -27,8 +41,9 @@ function create (){
     return new Promise((resolve)=>{
         inquirer.prompt(promptList).then(res=>{
             resolve(res)
-            // console.log(res);
+            console.log(res);
         })
     })
 }
+create()
 module.exports = {create}

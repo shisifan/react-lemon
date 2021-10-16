@@ -4,7 +4,9 @@
 const program = require("commander");
 const chalk = require('chalk');
 const inquirer = require("../src/inquirer");
+// 创建项目
 const create = require('../src/create')
+// 运行并打包项目
 const start = require('../src/start');
 const helpOptions = require("../src/help");
 
@@ -22,7 +24,7 @@ program
         inquirer.create().then(res=>{
             if(res.conf){
                 create(res)
-                // console.log(res.lemon);
+                // console.log(res.lemon, res.language);
             }
         })
     })
