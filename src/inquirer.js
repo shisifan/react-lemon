@@ -45,5 +45,4 @@ function create (){
         })
     })
 }
-create()
 module.exports = {create}

@@ -35,7 +35,7 @@ function runProject () {
     }
 }
 
-function copy (sourcePath,currentPath,cb) {
+function copy (sourcePath, currentPath, cb) {
     flat++;
     // 读取文件夹下面的文件 
     fs.readdir (sourcePath, (err,paths) => {
