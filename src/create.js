@@ -2,6 +2,7 @@ const chalk = require('chalk')
 const fs = require('fs')
 const npm = require('./install')
 
+// 复制文件
 let fileCount = 0;  // 文件数量 
 let dirCount = 0;   // 文件夹数量 
 let flat = 0;       // readier数量 
@@ -11,7 +12,7 @@ module.exports = function (res) {
     // 创建文件 
     console.log(chalk.green('------------- 开始构建 -------------'))
     // 选择模版
-    let sourcePath;
+    let sourcePath;   // template模版路径
     let frameTem = res.lemon + ' + ' + res.language;
     if (frameTem === 'react + ts') {
         sourcePath = __dirname.slice(0,-3)+'react-ts-template';
@@ -31,9 +32,13 @@ function runProject () {
         const doing = npm([ 'start' ])
         doing()
     }catch(e){
-       utils.red('自动启动失败，请手动npm start 启动项目')
+        utils.red('自动启动失败，请手动npm start 启动项目')
     }
 }
+
+// function pack () {
+//     const packing = npm([''])
+// }
 
 function copy (sourcePath, currentPath, cb) {
     flat++;
@@ -91,7 +96,7 @@ function dirExist (sourcePath,currentPath,copyCallback,cb) {
     }))
 }
 function completeControl(cb){
-    /* 三变量均为0，异步I/O执行完毕。 */
+    /*  三变量均为0，异步I/O执行完毕。 */
     if(fileCount === 0 && dirCount ===0 && flat===0){
         console.log(chalk.green('------------- 构建完成 -------------'))
         if(cb && !isInstall ){
@@ -107,6 +112,7 @@ function completeControl(cb){
 }
 
 // 修改package.json文件
+// 修改项目名称和作者
 function revisePackageJson(res,sourcePath){
     return new Promise((resolve)=>{
       /* 读取文件 */
