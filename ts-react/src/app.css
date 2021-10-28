@@ -1,0 +1,27 @@
+.page{
+    position: fixed;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    background-color: black;
+}
+.content{
+    margin-top: 40px;
+    height: 550px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.add{
+    font-weight: bold;
+    font-size: 100px;
+    color: white;
+}
+.title{
+    text-align: center;
+    font-size: 20px;
+    color: #ffff;
+}
