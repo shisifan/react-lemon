@@ -1,4 +1,5 @@
 const chalk = require("chalk");
+const { LOADIPHLPAPI } = require("dns");
 const fs = require("fs");
 const npm = require("./install");
 
@@ -127,7 +128,8 @@ function completeControl(cb) {
       cb(() => {
         console.log(chalk.blue("------------- 完成安装 -------------"));
         /* 判断是否存在webpack  */
-        console.log(judge);
+        console.log('\n Done. Now run \n');
+        console.log(chalk.green("\n npm run start \n"));
         if (judge === "webpack") {
           runProject();
         }

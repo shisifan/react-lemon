@@ -39,12 +39,11 @@ module.exports = (type) => {
         );
       } else {
         // 不存在，抛出警告
-        // console.log(
-        //   chalk.red(
-        //     "lemon-react-webpack-plugin does not exist,please install lemon-react-webpack-plugin"
-        //   )
-        // );
-        console.log('\n npm run dev');
+        console.log(
+          chalk.red(
+            "lemon-react-webpack-plugin does not exist,please install lemon-react-webpack-plugin"
+          )
+        );
       }
     });
   });
