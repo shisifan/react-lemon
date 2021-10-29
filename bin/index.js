@@ -13,6 +13,7 @@ const helpOptions = require("../src/help");
 // 查看版本号  
 program.version(require('../package.json').version);
 
+let result = [];
 // 调用帮助和可选信息
 helpOptions();
 program
@@ -24,7 +25,7 @@ program
         inquirer.create().then(res=>{
             if(res.conf){
                 create(res)
-                // console.log(res.lemon, res.language);
+                // console.log(res.language + ' + ' + res.choosePack + '+' + res.lemon);
             }
         })
     })
